@@ -8,8 +8,7 @@ using UnityEngine.UI;
 public class game_end : MonoBehaviour
 {
 
-    public Image gameover;
-    public TextMeshProUGUI gametext;
+    public RawImage gameover;
 
 
     // Update is called once per frame
@@ -26,6 +25,5 @@ public class game_end : MonoBehaviour
     void gameoverUItrig()
     {
             gameover.enabled = true;
-            gametext.enabled = true;
     }
 }

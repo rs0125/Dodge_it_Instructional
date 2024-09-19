@@ -6,53 +6,49 @@ using UnityEngine.UIElements;
 
 public class movement : MonoBehaviour
 {
+
     public Rigidbody rb;
-    public float ForwardForce = 2000f;
-    public float KeySideForce = 500f;
-    public float ButtonSideForce = 500f;
+    public float ForwardForce = 50f;
+    public float KeySideForce = 50f;
+    public float ButtonSideForce = 50f;
     public MyButton left;
     public MyButton right;
-
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //adds a forward force
-        rb.AddForce(0, 0, ForwardForce * Time.deltaTime);
+        rb.AddForce(transform.forward * ForwardForce * Time.deltaTime, ForceMode.VelocityChange);
 
 
 
-        // keyboard input (non touch screen)
         if (Input.GetKey("d"))
         {
-            rb.AddForce(KeySideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(transform.right * KeySideForce * Time.deltaTime, ForceMode.VelocityChange);
         }
 
         if (Input.GetKey("a"))
         {
-            rb.AddForce(-KeySideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            rb.AddForce(-transform.right * KeySideForce * Time.deltaTime, ForceMode.VelocityChange);
         }
 
 
-        // button input (touchscreen)
         if (right.isPressed)
         {
-            rb.AddForce(ButtonSideForce * Time.deltaTime, 0, 0);
+            rb.AddForce(transform.right * KeySideForce * Time.deltaTime, ForceMode.VelocityChange);
         }
-
 
         if (left.isPressed)
         {
-            rb.AddForce(-ButtonSideForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-transform.right * KeySideForce * Time.deltaTime, ForceMode.VelocityChange);
         }
 
 
-        // if the object is below the position of y axis = -1, end the game
-        if (rb.position.y < -1f)
+
+        if (transform.localPosition.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }
     }
-
 }
