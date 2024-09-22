@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody rb;

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class score : MonoBehaviour
+public class Score : MonoBehaviour
 {
 
     public Transform player;

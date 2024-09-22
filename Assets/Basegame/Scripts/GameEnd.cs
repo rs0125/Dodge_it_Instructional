@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class game_end : MonoBehaviour
+public class GameEnd : MonoBehaviour
 {
 
     public RawImage gameover;
